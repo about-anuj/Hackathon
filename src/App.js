@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Reg from './Reg';
+import TeamDetail from './TeamDetail';
+import CompletedHackathon from './CompletedHackathon';
+import IdeaDescription from './IdeaDescription';
+import ProjectDetail from './ProjectDetail';
+import PanelistProjectList from './PanelistProjectList';
+import PanelReview from './PanelReview';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+     <Routes>
+      <Route path="/Auth" element={<Reg />}></Route>
+      <Route path="/CompletedHackathon" element={<CompletedHackathon />}></Route>
+      <Route path='/teamDetail' element={<TeamDetail />}></Route>
+      <Route path="/ideaDescription" element={<IdeaDescription />}></Route>
+      <Route path="/projectDetail/:id" element={<ProjectDetail />}></Route>
+      <Route path="/panelistProjectList" element={<PanelistProjectList />}></Route>
+      <Route path="/panelReview/:id" element={<PanelReview />}></Route>
+     </Routes>
+    </BrowserRouter>
   );
 }
 
